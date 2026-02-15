@@ -104,7 +104,7 @@ openssl pkey -in chave.key -text -noout: Inspeciona a chave (independente do tip
 
 openssl pkey -in chave.key -pubout: Extrai a chave pública (funciona para RSA e ECC).
 
-#PART 4 Validando certificados:#
+# PART 4 Validando certificados: #
 
 1. Comandos de Conexão e Extração
 O comando principal aqui é o s_client, que abre uma conexão SSL/TLS com um servidor remoto.
