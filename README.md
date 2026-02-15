@@ -36,7 +36,7 @@ openssl ec -in <arq> -text: Semelhante ao comando RSA, mas específico para insp
 .pem: Não é um comando, mas a extensão de arquivo padrão discutida. Significa Privacy Enhanced Mail e indica que o conteúdo está codificado em Base64 (texto ASCII), facilitando o copiar/colar.
 
 
-parte 2:
+# PART 2 #
 1. Comandos de Geração (openssl req)
 O utilitário req é o "canivete suíço" para criar identidades digitais. A principal diferença está na flag utilizada:
 
@@ -72,7 +72,7 @@ Subject Alternative Name (SAN): O padrão moderno. Permite que um único certifi
 
 Distinguished Name (DN): O conjunto de informações (País, Organização, etc.) que identifica a entidade.
 
-Troubleshooting:
+# PART 3 Troubleshooting: #
 
 1. Comandos para Chaves RSA (O Método do Modulus)
 No RSA, o componente único que liga o par é o Modulus. Se o Modulus do certificado e da chave forem iguais, eles combinam.
@@ -104,7 +104,7 @@ openssl pkey -in chave.key -text -noout: Inspeciona a chave (independente do tip
 
 openssl pkey -in chave.key -pubout: Extrai a chave pública (funciona para RSA e ECC).
 
-VAlidando certificados:
+#PART 4 Validando certificados:#
 
 1. Comandos de Conexão e Extração
 O comando principal aqui é o s_client, que abre uma conexão SSL/TLS com um servidor remoto.
@@ -155,7 +155,7 @@ CRL (Certificate Revocation List): Uma lista "negra" completa que o navegador ba
 
 OCSP (Online Certificate Status Protocol): Uma consulta rápida em tempo real para saber se aquele certificado específico ainda é válido (mais moderno).
 
-Certificados inválidos:
+# PART 5 Certificados inválidos: #
 1. Identificando Erros Comuns
 O OpenSSL exibe os dados brutos, mas não avisa se algo está errado com letras vermelhas ou alertas. O engenheiro deve saber onde olhar:
 
@@ -202,7 +202,7 @@ Enquanto um certificado do Google tem cerca de 4.000 caracteres, este tem 40.000
 
 Isso serve para testar o limite de processamento dos clientes (navegadores e dispositivos IoT), que podem travar ou ficar lentos ao processar uma lista tão vasta.
 
-Problemas de certificado:
+# PART 6 Problemas de certificado: #
 1. Ferramentas de Inspeção do Lado do Cliente
 Para diagnosticar o que acontece "por baixo do capô" quando um cliente tenta se conectar, o vídeo introduz duas ferramentas trabalhando juntas:
 
@@ -239,9 +239,8 @@ No Terminal B, tente a conexão com openssl s_client -connect site:443.
 Se a conexão cair, o ssl_dump mostrará exatamente em qual etapa (ex: após o ClientHello) o servidor enviou um "Alert" de fechamento.
 
 
-PRÁTICA:
+# PRÁTICA:# 
 
-Gemini said
 Para entender como tudo isso se conecta na prática, imagine que você é o Administrador de Redes de uma empresa chamada "MinhaEmpresa". Você precisa colocar um site novo no ar (loja.minhaempresa.com.br) com segurança máxima.
 
 Aqui está o fluxo real de trabalho, do zero até a monitoração:
