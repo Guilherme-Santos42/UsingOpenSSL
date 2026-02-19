@@ -64,8 +64,9 @@ Para que serve: Cria um arquivo de solicitação que contém sua chave pública 
 
 2. Comandos de Inspeção
 Como os arquivos PEM são apenas códigos em Base64, você precisa destes comandos para ler o que está dentro deles:
-
+```
 openssl x509 -in cert.pem -noout -text: Exibe os detalhes de um Certificado.
+```
 
 O que verificar: Data de validade, quem emitiu (Issuer), o nome do dono (Subject) e o campo SAN (Subject Alternative Name).
 
