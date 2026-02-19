@@ -4,8 +4,11 @@
 O RSA é o padrão tradicional de criptografia baseada na dificuldade de fatorar números primos grandes.
 
 openssl genrsa: Gera uma chave privada RSA.
+<details>
+  <summary>Uso comum: openssl genrsa -out KEY.pem 2048</summary>
 
-Uso comum: openssl genrsa -out KEY.pem 2048 
+</details>
+
 
 Nota: O tamanho da chave (ex: 2048) deve ser sempre o último argumento.
 
