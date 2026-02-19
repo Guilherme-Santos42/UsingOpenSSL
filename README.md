@@ -5,7 +5,7 @@ O RSA é o padrão tradicional de criptografia baseada na dificuldade de fatorar
 
 openssl genrsa: Gera uma chave privada RSA.
 
-Uso comum: openssl genrsa -out chave.pem 2048.
+Uso comum: openssl genrsa -out KEY.pem 2048 
 
 Nota: O tamanho da chave (ex: 2048) deve ser sempre o último argumento.
 
@@ -15,6 +15,8 @@ Dica: Adicione -noout para não repetir a versão codificada em Base64 na tela.
 
 2. Geração de Chaves de Curva Elíptica (ECC)
 O ECC é o padrão moderno, oferecendo a mesma segurança que o RSA, mas com chaves muito menores e menos esforço do processador.
+
+Uso comum: openssl genpkey -algorithm EC -pkeyopt ec_paramgen_curve:P-384 -out EC-KEY.pem
 
 openssl ecparam: Utilizado para manipular parâmetros de curvas elípticas.
 
@@ -40,9 +42,12 @@ openssl ec -in <arq> -text: Semelhante ao comando RSA, mas específico para insp
 1. Comandos de Geração (openssl req)
 O utilitário req é o "canivete suíço" para criar identidades digitais. A principal diferença está na flag utilizada:
 
+Uso comum: openssl req -new -key KEY.pem -out CSR.pem (assinado por key com um pedido)
+Uso comum: openssl req -x509 -key KEY.pem -out CERT.pem (O parâmetro -x509 é a palavra mágica. Ele diz: "Não crie um pedido, crie o certificado final agora mesmo".)
+
 openssl req -x509: Gera um Certificado Autoassinado (Self-Signed).
 
-Para que serve: Cria um certificado final que você mesmo assina. É útil para testes internos, mas navegadores exibirão um alerta de segurança porque não há uma Autoridade Certificadora (CA) confiável validando-o.
+Para que serve: Cria um certificado final que você mesmo assina. Você usa sua chave privada para assinar o pedido, provando que você é o dono dela. É útil para testes internos, mas navegadores exibirão um alerta de segurança porque não há uma Autoridade Certificadora (CA) confiável validando-o.
 
 openssl req -new: Gera uma CSR (Certificate Signing Request).
 
