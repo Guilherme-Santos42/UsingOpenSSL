@@ -48,7 +48,7 @@ O utilitário req é o "canivete suíço" para criar identidades digitais. A pri
 Uso comum: openssl req -new -key KEY.pem -out CSR.pem (assinado por key com um pedido)
 ```
 ```
-Uso comum: openssl req -x509 -key KEY.pem -out CERT.pem (O parâmetro -x509 é a palavra mágica. Ele diz: "Não crie um pedido, crie o certificado final agora mesmo".)
+Uso comum (Self-Signed): openssl req -x509 -key KEY.pem -out CERT.pem (O parâmetro -x509 é a palavra mágica. Ele diz: "Não crie um pedido, crie o certificado final agora mesmo".)
 ```
 openssl req -x509: Gera um Certificado Autoassinado (Self-Signed).
 
